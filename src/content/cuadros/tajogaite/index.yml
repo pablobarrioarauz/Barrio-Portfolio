@@ -1,7 +1,7 @@
 lang:
   - es
   - en
-order: 11
+order: 12
 titulo: Tajogaite
 tecnica: Técnica mixta sobre lienzo
 texto: Obra en blanco y negro que representa la vivienda cubierta por la colada durante la erupción del volcán de Tajogaite en La Palma en 2021. Una pieza sobria y directa que retrata el impacto de la lava sobre el paisaje.
@@ -11,6 +11,6 @@ estado: vendido
 fotos:
   - tajogaite-1.jpg
 en:
-  order: 11
+  order: 12
   tecnica: Mixed media on canvas
   texto: A black-and-white work depicting a house buried by the lava flow during the 2021 eruption of the Tajogaite volcano on La Palma. A restrained, direct piece that portrays the impact of the lava on the landscape.

@@ -1,7 +1,7 @@
 lang:
   - es
   - en
-order: 4
+order: 8
 titulo: Paraíso desértico
 tecnica: Técnica mixta sobre lienzo
 texto: Obra abstracta en tonos neutros y terrosos que evoca un paisaje árido y minimalista. Una pieza de texturas sutiles que transmite una intensa sensación de calma y vastitud.
@@ -11,6 +11,6 @@ estado: vendido
 fotos:
   - paraiso-desertico-1.jpg
 en:
-  order: 4
+  order: 8
   tecnica: Mixed media on canvas
   texto: An abstract work in neutral, earthy tones that evokes an arid, minimal landscape. A piece of subtle textures that conveys an intense sense of calm and vastness.
