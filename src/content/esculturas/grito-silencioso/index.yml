@@ -1,7 +1,7 @@
 lang:
   - es
   - en
-order: 8
+order: 5
 titulo: Grito silencioso
 tecnica: Ensambada
 texto: |-
@@ -16,6 +16,6 @@ fotos:
   - gg6a1518.webp
   - gg6a1516.webp
 en:
-  order: 8
+  order: 5
   tecnica: ''
   texto: ''

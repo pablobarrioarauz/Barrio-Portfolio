@@ -1,6 +1,8 @@
-titulo: "Cosa de dos"
+lang:
+  - es
+order: 4
+titulo: Cosa de dos
 estado: vendido
 fotos:
   - cosa-de-dos-1.jpg
   - cosa-de-dos-2.jpg
-order: 6
