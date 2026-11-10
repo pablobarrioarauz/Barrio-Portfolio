@@ -9,12 +9,10 @@ medidas: 'Tríptico: 180 x 220 cm'
 anio: 2022
 estado: vendido
 fotos:
-  - familia-africana-1.jpg
   - familia-africana-2.jpg
   - familia-africana-3.jpg
+  - familia-africana-1.jpg
   - familia-africana-4.jpg
-  - familia-africana-5.jpg
-  - familia-africana-6.jpg
 en:
   order: 20
   tecnica: Mixed media on canvas
