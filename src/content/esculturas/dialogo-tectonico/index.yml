@@ -1,7 +1,7 @@
 lang:
   - es
   - en
-order: 6
+order: 1
 titulo: Diálogo tectónico
 tecnica: Ensamblada y tallada
 texto: |-
@@ -14,6 +14,6 @@ fotos:
   - gg6a1828.webp
   - gg6a1819.webp
 en:
-  order: 6
+  order: 1
   tecnica: ''
   texto: ''
