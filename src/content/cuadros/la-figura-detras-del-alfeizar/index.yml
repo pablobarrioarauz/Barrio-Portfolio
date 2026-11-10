@@ -1,7 +1,7 @@
 lang:
   - es
   - en
-order: 7
+order: 13
 titulo: La figura detrás del alféizar
 tecnica: Técnica mixta sobre lienzo
 texto: Un paisaje fragmentado donde materia y gesto se equilibran entre control y accidente. La línea horizontal, como alféizar, marca un umbral silencioso desde el que se intuye una figura al otro lado, suspendida entre lo construido y lo imaginado.
@@ -12,6 +12,6 @@ fotos:
   - la-figura-detras-del-alfeizar-1.jpg
   - la-figura-detras-del-alfeizar-2.jpg
 en:
-  order: 7
+  order: 13
   tecnica: Mixed media on canvas
   texto: A fragmented landscape where matter and gesture balance between control and chance. The horizontal line, like a windowsill, marks a silent threshold beyond which a figure can be sensed, suspended between the built and the imagined.

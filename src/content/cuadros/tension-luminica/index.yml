@@ -1,7 +1,7 @@
 lang:
   - es
   - en
-order: 15
+order: 5
 titulo: Tensión lumínica
 tecnica: Mixta sobre lienzo
 texto: |-
@@ -15,6 +15,6 @@ fotos:
   - gg6a1494.webp
   - gg6a1501.webp
 en:
-  order: 15
+  order: 5
   tecnica: ''
   texto: ''

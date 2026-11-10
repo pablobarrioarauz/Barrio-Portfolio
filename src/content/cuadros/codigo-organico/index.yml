@@ -1,7 +1,7 @@
 lang:
   - es
   - en
-order: 19
+order: 10
 titulo: Código orgánico
 tecnica: MIxta sobre papel de grabado
 texto: |-
@@ -15,6 +15,6 @@ fotos:
   - gg6a1645.webp
   - gg6a1648.webp
 en:
-  order: 19
+  order: 10
   tecnica: ''
   texto: ''

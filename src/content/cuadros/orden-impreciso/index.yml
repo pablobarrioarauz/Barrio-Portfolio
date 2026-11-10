@@ -1,7 +1,7 @@
 lang:
   - es
   - en
-order: 18
+order: 3
 titulo: Orden impreciso
 tecnica: Mixta sobre lienzo
 texto: |-
@@ -16,6 +16,6 @@ fotos:
   - gg6a1628.webp
   - gg6a1624.webp
 en:
-  order: 18
+  order: 3
   tecnica: ''
   texto: ''

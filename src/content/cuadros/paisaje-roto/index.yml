@@ -1,7 +1,7 @@
 lang:
   - es
   - en
-order: 6
+order: 15
 titulo: Paisaje roto
 tecnica: Técnica mixta sobre lienzo
 texto: Obra en técnica mixta (acrílico y pastel al óleo sobre texturas ricas) que refleja una vista aérea de campos cultivados, rotos y fragmentados por el tiempo. A través de la superposición de materia y tonos tierra, la composición evoca un territorio telúrico donde la memoria del paisaje se fusiona con la abstracción.
@@ -12,6 +12,6 @@ fotos:
   - paisaje-roto-1.jpg
   - paisaje-roto-2.jpg
 en:
-  order: 6
+  order: 15
   tecnica: Mixed media on canvas
   texto: A mixed-media work (acrylic and oil pastel over rich textures) showing an aerial view of farmland, broken and fragmented by time. Through layers of matter and earth tones, the composition evokes a telluric territory where the memory of the landscape merges with abstraction.

@@ -1,7 +1,7 @@
 lang:
   - es
   - en
-order: 9
+order: 19
 titulo: Puerto en ruinas
 tecnica: Técnica mixta sobre lienzo
 texto: Obra abstracta de texturas marcadas y tonos tierra que evoca un paisaje portuario desgastado por el tiempo y el abandono.
@@ -22,6 +22,6 @@ fotos:
   - puerto-en-ruinas-11.jpg
   - puerto-en-ruinas-12.jpg
 en:
-  order: 9
+  order: 19
   tecnica: Mixed media on canvas
   texto: An abstract work of strong textures and earth tones that evokes a harbour landscape worn down by time and neglect.
