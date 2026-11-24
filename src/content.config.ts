@@ -50,6 +50,9 @@ const fichaDeColaboracion = ({ image }: SchemaContext) =>
     anio: numeroOpcional,
     texto: textoOpcional,
     fotos: z.array(image()).min(1),
+    // La foto grande (apaisada) de su bloque en ¿Colaboramos?; si falta, la
+    // primera de las fotos.
+    portada: z.preprocess(vacioANada, image().optional()),
     order: z.number().default(999),
     en: z.object({ texto: textoOpcional }).default({}),
   });

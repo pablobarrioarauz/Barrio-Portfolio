@@ -92,10 +92,14 @@ tal cual (sustituiría lo que haga él); antes de tocar nada, `git pull`.
   En vez de pasos lleva las **tres modalidades de colaboración** que mandó
   Pablo (24-11-2026; traducción mía) y, al final, **Colaboraciones**: los
   proyectos hechos con otros, que Pablo añade, quita y ordena desde el panel
-  (colección `colaboraciones`, `src/content/colaboraciones/`). Se guardan y se
-  enseñan como las obras (misma galería, misma página con carrusel, en
-  `/colabora/<nombre>/`), con colaborador (y su web o @Instagram), lugar, año
-  y texto. Sin ninguna, la sección no sale. "Acerca de mí" va
+  (colección `colaboraciones`, `src/content/colaboraciones/`). En
+  ¿Colaboramos? cada una es un bloque como la cabecera de Encargos (texto a
+  la izquierda, foto grande apaisada a la derecha: el campo "Foto grande",
+  o la primera foto si falta; 25-11-2026); su página, como la de una obra
+  (carrusel, en `/colabora/<nombre>/`), con colaborador (y su web o
+  @Instagram), lugar, año y texto. Sin ninguna, la sección no sale. La
+  primera: Proyecto Núñez de Balboa 17 (MH Global), con las fotos y
+  encuadres del dossier de Guzmán. "Acerca de mí" va
   dentro de Contacto (lo decidió Guzmán, 16-10-2026). Desde el 21-10-2026
   Contacto (28-10-2026, pedido de Pablo): sin título visible; una foto a
   pantalla completa que se pasa sola cada 5 s (la siguiente aparece encima,

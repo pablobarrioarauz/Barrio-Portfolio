@@ -29,6 +29,7 @@ export function ficha(obra: Obra, idioma: Idioma) {
         d.anio && { texto: String(d.anio) },
       ].filter((x) => !!x),
       subtitulo: d.colaborador,
+      portada: d.portada ?? d.fotos[0],
       enVenta: false,
       vendida: false,
       fotos: d.fotos,

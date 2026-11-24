@@ -7,10 +7,9 @@
 // abiertos al público.
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
-import Galeria from '../components/Galeria.astro';
 import fotoEncargosAncha from '../assets/encargos/horizontal.jpg';
-import { ambas, urlColabora, urlEncargos, type Idioma } from '../lib/rutas';
-import { obrasDe } from '../lib/obras';
+import { ambas, urlColabora, urlEncargos, urlObra, type Idioma } from '../lib/rutas';
+import { ficha, obrasDe } from '../lib/obras';
 import { urlWhatsApp } from '../lib/sitio';
 import { textos } from '../lib/textos';
 
@@ -28,7 +27,13 @@ const p =
 // En ¿Colaboramos?, al final, los proyectos que ya ha hecho con otros
 // (24-11-2026). Los añade, quita y ordena Pablo desde el panel; si no hay
 // ninguno, la sección no sale.
-const colaboraciones = pagina === 'colabora' ? await obrasDe('colaboraciones') : [];
+// Cada una, un bloque como la cabecera de Encargos (pedido de Guzmán,
+// 25-11-2026): la foto grande apaisada a un lado y, al otro, el nombre, con
+// quién, dónde y cuándo, y el texto. Todo el bloque lleva a su página.
+const colaboraciones = (pagina === 'colabora' ? await obrasDe('colaboraciones') : []).map((c) => {
+  const f = ficha(c, idioma);
+  return { url: urlObra('colaboraciones', c.id, idioma), ...f, portada: 'portada' in f ? f.portada : f.fotos[0] };
+});
 ---
 
 <Base idioma={idioma} alternativas={ambas(p.url)} titulo={p.nombre} descripcion={p.intro[0]} activa={pagina}>
@@ -67,7 +72,23 @@ const colaboraciones = pagina === 'colabora' ? await obrasDe('colaboraciones') :
   {colaboraciones.length > 0 && (
     <section class="colaboraciones">
       <h2 class="anima" data-ritmo="30">{t.colaboraciones}</h2>
-      <Galeria idioma={idioma} seccion="colaboraciones" obras={colaboraciones} />
+      <ul class="lista-colaboraciones">
+        {colaboraciones.map((c) => (
+          <li class="anima-bloque">
+            <a class="colaboracion" href={c.url}>
+              <figure class="foto">
+                <Image src={c.portada} alt={c.titulo} widths={[600, 900, 1200, 1600]} sizes="(min-width: 900px) 50vw, 100vw" />
+              </figure>
+              <div class="sobre">
+                <h3>{c.titulo}</h3>
+                <p class="datos">{c.datos.map((d) => d.texto).join(' · ')}</p>
+                {c.texto && <p class="texto">{c.texto}</p>}
+                <span class="ver">{t.verProyecto} →</span>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
     </section>
   )}
 </Base>
@@ -329,5 +350,63 @@ const colaboraciones = pagina === 'colabora' ? await obrasDe('colaboraciones') :
 
   .colaboraciones {
     margin-top: 5rem;
+  }
+
+  .lista-colaboraciones {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 4rem;
+  }
+
+  .colaboracion {
+    display: grid;
+    gap: 1.25rem;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .colaboracion .foto {
+    margin: 0;
+  }
+
+  .colaboracion .foto :global(img) {
+    transition: scale 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .colaboracion:hover .foto :global(img) {
+    scale: 1.03;
+  }
+
+  .colaboracion h3 {
+    margin: 0 0 0.5rem;
+  }
+
+  .colaboracion .datos,
+  .colaboracion .texto {
+    margin: 0 0 0.75rem;
+    color: var(--suave);
+  }
+
+  .colaboracion .ver {
+    display: inline-block;
+    margin-top: 0.5rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* En ordenador, como la cabecera de Encargos: el texto a la izquierda,
+     centrado en vertical, y la foto a la derecha. En el móvil, la foto
+     arriba. */
+  @media (min-width: 900px) {
+    .colaboracion {
+      grid-template-columns: 5fr 6fr;
+      align-items: center;
+      column-gap: clamp(2rem, 5vw, 5rem);
+    }
+    .colaboracion .foto {
+      order: 2;
+    }
   }
 </style>

@@ -124,4 +124,5 @@ collections:
       - { name: lugar, label: Lugar, widget: string, required: false, hint: 'Por ejemplo: Restaurante Lúa, Madrid' }
       - { name: anio, label: Año, widget: number, value_type: int, required: false }
       - { name: texto, label: Texto breve, widget: text, required: false, i18n: true, hint: 'Qué hicisteis, en una o dos frases. Puede quedarse vacío.' }
-      - { name: fotos, label: Fotos, widget: image, multiple: true, hint: 'La primera es la que sale en ¿Colaboramos?.' }
+      - { name: portada, label: Foto grande, widget: image, required: false, hint: 'Una foto apaisada (horizontal) para el bloque de ¿Colaboramos?. Si se deja vacía, se usa la primera de las fotos.' }
+      - { name: fotos, label: Fotos, widget: image, multiple: true, hint: 'Las de la página del proyecto, en este orden.' }
