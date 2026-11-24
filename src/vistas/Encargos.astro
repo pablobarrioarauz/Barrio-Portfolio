@@ -56,7 +56,11 @@ const colaboraciones = (pagina === 'colabora' ? await obrasDe('colaboraciones') 
       colaboración (texto de Pablo, 24-11-2026), cada una con a quién va. Una
       columna por tarjeta en ordenador, para que no quede un hueco. */}
   <h2 class="anima" data-ritmo="30">{p.como}</h2>
-  <ol class="pasos" style={`--columnas: ${p.pasos.length}`}>
+  {/* En el móvil, las modalidades de ¿Colaboramos? van en un carrusel que
+      se desliza con el dedo, con puntitos debajo como las fotos de una obra
+      (pedido de Guzmán, 25-11-2026: una debajo de otra medían 1.030 px, más
+      que la pantalla). En ordenador, en fila como siempre. */}
+  <ol class:list={['pasos', { deslizable: pagina === 'colabora' }]} style={`--columnas: ${p.pasos.length}`}>
     {p.pasos.map((paso, i) => (
       <li>
         <span class="numero anima" data-ritmo="45" data-despues={i * 120}>{String(i + 1).padStart(2, '0')}</span>
@@ -66,6 +70,11 @@ const colaboraciones = (pagina === 'colabora' ? await obrasDe('colaboraciones') 
       </li>
     ))}
   </ol>
+  {pagina === 'colabora' && (
+    <div class="puntos" aria-hidden="true">
+      {p.pasos.map((_, i) => <button type="button" class="punto" tabindex="-1" aria-current={i === 0 ? 'true' : undefined} />)}
+    </div>
+  )}
 
   <p class="llamada anima-bloque"><a class="boton" href={urlWhatsApp(p.mensaje)}>{t.escribirWhatsApp}</a></p>
 
@@ -101,6 +110,31 @@ const colaboraciones = (pagina === 'colabora' ? await obrasDe('colaboraciones') 
 </script>
 
 <script>
+  // Carrusel de las modalidades (solo se desliza en el móvil): el puntito
+  // de la tarjeta que se ve se marca, y pulsar uno lleva a su tarjeta.
+  for (const pista of document.querySelectorAll<HTMLElement>('.pasos.deslizable')) {
+    const tarjetas = [...pista.children] as HTMLElement[];
+    const puntos = [...(pista.nextElementSibling?.querySelectorAll<HTMLButtonElement>('.punto') ?? [])];
+    const actual = () => {
+      const izquierda = pista.getBoundingClientRect().left;
+      let mejor = 0;
+      tarjetas.forEach((t, i) => {
+        if (Math.abs(t.getBoundingClientRect().left - izquierda - parseFloat(getComputedStyle(pista).scrollPaddingLeft || '0')) <
+          Math.abs(tarjetas[mejor].getBoundingClientRect().left - izquierda - parseFloat(getComputedStyle(pista).scrollPaddingLeft || '0')))
+          mejor = i;
+      });
+      return mejor;
+    };
+    const marcar = () => {
+      const i = actual();
+      puntos.forEach((p, k) => (k === i ? p.setAttribute('aria-current', 'true') : p.removeAttribute('aria-current')));
+    };
+    pista.addEventListener('scroll', marcar, { passive: true });
+    puntos.forEach((p, i) =>
+      p.addEventListener('click', () => tarjetas[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' })),
+    );
+  }
+
   // Entradas, como el título de Pintura y Escultura (pedido de Guzmán): los
   // títulos entran letra a letra, cada letra subiendo un poco y pasando de
   // desenfocada a nítida; el ritmo (ms entre letras) va en data-ritmo. Los
@@ -336,6 +370,53 @@ const colaboraciones = (pagina === 'colabora' ? await obrasDe('colaboraciones') 
   .pasos p {
     margin: 0;
     color: var(--suave);
+  }
+
+  /* Carrusel del móvil: llega hasta los bordes de la pantalla, se ve una
+     tarjeta entera y asoma la siguiente; cada una se queda encajada al
+     soltar. Todas igual de altas (las de una fila se estiran solas). */
+  .puntos {
+    display: none;
+  }
+
+  @media (max-width: 719.98px) {
+    .pasos.deslizable {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      overscroll-behavior-x: contain;
+      scrollbar-width: none;
+      margin-inline: calc(-1 * var(--margen));
+      padding-inline: var(--margen);
+      scroll-padding-inline: var(--margen);
+    }
+    .pasos.deslizable::-webkit-scrollbar {
+      display: none;
+    }
+    .pasos.deslizable li {
+      flex: 0 0 84%;
+      scroll-snap-align: start;
+    }
+    .puntos {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 1rem;
+    }
+    .punto {
+      width: 6px;
+      height: 6px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: var(--texto);
+      opacity: 0.2;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+    .punto[aria-current] {
+      opacity: 1;
+    }
   }
 
   .pasos .para {
