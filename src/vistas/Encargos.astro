@@ -115,15 +115,11 @@ const colaboraciones = (pagina === 'colabora' ? await obrasDe('colaboraciones') 
   for (const pista of document.querySelectorAll<HTMLElement>('.pasos.deslizable')) {
     const tarjetas = [...pista.children] as HTMLElement[];
     const puntos = [...(pista.nextElementSibling?.querySelectorAll<HTMLButtonElement>('.punto') ?? [])];
+    // La primera queda al principio, la última al final y las del medio,
+    // centradas: sus puestos se reparten a lo largo del recorrido.
     const actual = () => {
-      const izquierda = pista.getBoundingClientRect().left;
-      let mejor = 0;
-      tarjetas.forEach((t, i) => {
-        if (Math.abs(t.getBoundingClientRect().left - izquierda - parseFloat(getComputedStyle(pista).scrollPaddingLeft || '0')) <
-          Math.abs(tarjetas[mejor].getBoundingClientRect().left - izquierda - parseFloat(getComputedStyle(pista).scrollPaddingLeft || '0')))
-          mejor = i;
-      });
-      return mejor;
+      const recorrido = pista.scrollWidth - pista.clientWidth;
+      return recorrido > 0 ? Math.round((pista.scrollLeft / recorrido) * (tarjetas.length - 1)) : 0;
     };
     const marcar = () => {
       const i = actual();
@@ -131,7 +127,10 @@ const colaboraciones = (pagina === 'colabora' ? await obrasDe('colaboraciones') 
     };
     pista.addEventListener('scroll', marcar, { passive: true });
     puntos.forEach((p, i) =>
-      p.addEventListener('click', () => tarjetas[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' })),
+      p.addEventListener('click', () => {
+        const t = tarjetas[i];
+        pista.scrollTo({ left: t.offsetLeft - (pista.clientWidth - t.offsetWidth) / 2, behavior: 'smooth' });
+      }),
     );
   }
 
@@ -393,9 +392,18 @@ const colaboraciones = (pagina === 'colabora' ? await obrasDe('colaboraciones') 
     .pasos.deslizable::-webkit-scrollbar {
       display: none;
     }
+    /* La primera, pegada al margen izquierdo; la última, al derecho; las
+       del medio, centradas, con lo mismo asomando a cada lado (pedido de
+       Guzmán). */
     .pasos.deslizable li {
       flex: 0 0 84%;
+      scroll-snap-align: center;
+    }
+    .pasos.deslizable li:first-child {
       scroll-snap-align: start;
+    }
+    .pasos.deslizable li:last-child {
+      scroll-snap-align: end;
     }
     .puntos {
       display: flex;
