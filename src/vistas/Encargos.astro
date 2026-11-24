@@ -63,11 +63,12 @@ const colaboraciones = (pagina === 'colabora' ? await obrasDe('colaboraciones') 
       colaboración (texto de Pablo, 24-11-2026), cada una con a quién va. Una
       columna por tarjeta en ordenador, para que no quede un hueco. */}
   <h2 class="anima" data-ritmo="30">{p.como}</h2>
-  {/* En el móvil, las modalidades de ¿Colaboramos? van en un carrusel que
-      se desliza con el dedo, con puntitos debajo como las fotos de una obra
-      (pedido de Guzmán, 25-11-2026: una debajo de otra medían 1.030 px, más
-      que la pantalla). En ordenador, en fila como siempre. */}
-  <ol class:list={['pasos', { deslizable: pagina === 'colabora' }]} style={`--columnas: ${p.pasos.length}`}>
+  {/* En el móvil, las tarjetas van en un carrusel que se desliza con el
+      dedo, con puntitos debajo como las fotos de una obra (pedido de
+      Guzmán, 25-11-2026: primero en ¿Colaboramos?, donde una debajo de otra
+      medían 1.030 px, más que la pantalla; luego también en Encargos). En
+      ordenador, en fila como siempre. */}
+  <ol class="pasos deslizable" style={`--columnas: ${p.pasos.length}`}>
     {p.pasos.map((paso, i) => (
       <li>
         <span class="numero anima" data-ritmo="45" data-despues={i * 120}>{String(i + 1).padStart(2, '0')}</span>
@@ -77,11 +78,9 @@ const colaboraciones = (pagina === 'colabora' ? await obrasDe('colaboraciones') 
       </li>
     ))}
   </ol>
-  {pagina === 'colabora' && (
-    <div class="puntos" aria-hidden="true">
-      {p.pasos.map((_, i) => <button type="button" class="punto" tabindex="-1" aria-current={i === 0 ? 'true' : undefined} />)}
-    </div>
-  )}
+  <div class="puntos" aria-hidden="true">
+    {p.pasos.map((_, i) => <button type="button" class="punto" tabindex="-1" aria-current={i === 0 ? 'true' : undefined} />)}
+  </div>
 
   {pagina === 'encargos' && (
     <p class="llamada anima-bloque"><a class="boton" href={urlWhatsApp(p.mensaje)}>{t.escribirWhatsApp}</a></p>
