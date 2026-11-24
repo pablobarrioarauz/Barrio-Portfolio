@@ -36,6 +36,9 @@ export const textos = {
     preguntarObra: 'Preguntar por esta obra',
     mensajeObra: (titulo: string, url: string) => `Hola, Pablo. Me interesa la obra «${titulo}»: ${url}`,
     escribirWhatsApp: 'Escríbeme por WhatsApp',
+    // El botón de ¿Colaboramos? (25-11-2026): más profesional que "Escríbeme
+    // por WhatsApp"; sigue abriendo WhatsApp con el mensaje ya escrito.
+    colaboraBoton: 'Hablemos de tu proyecto',
     contactaConmigo: 'Contacta conmigo',
     mensajeEncargo: 'Hola, Pablo. Me gustaría hablar contigo sobre un encargo.',
     mensajeColabora: 'Hola, Pablo. Me gustaría hablar contigo sobre un proyecto de arte para mi espacio.',
@@ -118,6 +121,7 @@ export const textos = {
     preguntarObra: 'Ask about this work',
     mensajeObra: (titulo: string, url: string) => `Hi Pablo, I'm interested in "${titulo}": ${url}`,
     escribirWhatsApp: 'Message me on WhatsApp',
+    colaboraBoton: "Let's talk about your project",
     contactaConmigo: 'Contact me',
     mensajeEncargo: "Hi Pablo, I'd like to talk to you about a commission.",
     mensajeColabora: "Hi Pablo, I'd like to talk to you about an art project for my space.",

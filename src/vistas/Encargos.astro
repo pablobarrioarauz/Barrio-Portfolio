@@ -52,6 +52,13 @@ const colaboraciones = (pagina === 'colabora' ? await obrasDe('colaboraciones') 
     </div>
   </div>
 
+  {/* En ¿Colaboramos?, el botón va justo después de la introducción, antes
+      de las modalidades (pedido de Guzmán, 25-11-2026). En Encargos, al
+      final, como siempre. */}
+  {pagina === 'colabora' && (
+    <p class="llamada llamada-arriba anima-bloque"><a class="boton" href={urlWhatsApp(p.mensaje)}>{t.colaboraBoton}</a></p>
+  )}
+
   {/* Encargos: los pasos del proceso. ¿Colaboramos?: las modalidades de
       colaboración (texto de Pablo, 24-11-2026), cada una con a quién va. Una
       columna por tarjeta en ordenador, para que no quede un hueco. */}
@@ -76,7 +83,9 @@ const colaboraciones = (pagina === 'colabora' ? await obrasDe('colaboraciones') 
     </div>
   )}
 
-  <p class="llamada anima-bloque"><a class="boton" href={urlWhatsApp(p.mensaje)}>{t.escribirWhatsApp}</a></p>
+  {pagina === 'encargos' && (
+    <p class="llamada anima-bloque"><a class="boton" href={urlWhatsApp(p.mensaje)}>{t.escribirWhatsApp}</a></p>
+  )}
 
   {colaboraciones.length > 0 && (
     <section class="colaboraciones">
@@ -435,6 +444,10 @@ const colaboraciones = (pagina === 'colabora' ? await obrasDe('colaboraciones') 
 
   .llamada {
     margin-top: 3rem;
+  }
+
+  .llamada-arriba {
+    margin: 2rem 0 0;
   }
 
   .colaboraciones {
