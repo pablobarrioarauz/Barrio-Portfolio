@@ -88,7 +88,13 @@ tal cual (sustituiría lo que haga él); antes de tocar nada, `git pull`.
   **¿Colaboramos?** (antes "Colabora conmigo" y "¿Proyectamos?"; 24-11-2026, /colabora/ y /en/work-with-me/) es una
   réplica de Encargos para negocios y espacios abiertos al público, con el
   texto que mandó Pablo; las dos páginas salen de `src/vistas/Encargos.astro`.
-  Sus pasos y la traducción son provisionales. "Acerca de mí" va
+  En vez de pasos lleva las **tres modalidades de colaboración** que mandó
+  Pablo (24-11-2026; traducción mía) y, al final, **Colaboraciones**: los
+  proyectos hechos con otros, que Pablo añade, quita y ordena desde el panel
+  (colección `colaboraciones`, `src/content/colaboraciones/`). Se guardan y se
+  enseñan como las obras (misma galería, misma página con carrusel, en
+  `/colabora/<nombre>/`), con colaborador (y su web o @Instagram), lugar, año
+  y texto. Sin ninguna, la sección no sale. "Acerca de mí" va
   dentro de Contacto (lo decidió Guzmán, 16-10-2026). Desde el 21-10-2026
   Contacto (28-10-2026, pedido de Pablo): sin título visible; una foto a
   pantalla completa que se pasa sola cada 5 s (la siguiente aparece encima,

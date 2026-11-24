@@ -7,6 +7,10 @@ export type Idioma = 'es' | 'en';
 export const idiomas: Idioma[] = ['es', 'en'];
 
 export type Seccion = 'cuadros' | 'esculturas';
+// Las colaboraciones (24-11-2026) se guardan y se enseñan como las obras,
+// pero no tienen sección propia: sus tarjetas van en ¿Colaboramos? y cada
+// una cuelga de esa página (/colabora/<nombre>/, /en/work-with-me/<nombre>/).
+export type Coleccion = Seccion | 'colaboraciones';
 
 // El nombre que se lee es "Pintura" y "Escultura" (decisión de Guzmán,
 // 16-10-2026), pero las direcciones siguen siendo /cuadros/ y /esculturas/,
@@ -23,8 +27,11 @@ export const conBase = (ruta: string) => `${BASE}${ruta}`;
 const prefijo = (idioma: Idioma) => conBase(idioma === 'en' ? '/en' : '');
 
 export const urlInicio = (idioma: Idioma) => `${prefijo(idioma)}/`;
-export const urlSeccion = (seccion: Seccion, idioma: Idioma) => `${prefijo(idioma)}/${secciones[seccion].slug[idioma]}/`;
-export const urlObra = (seccion: Seccion, obra: string, idioma: Idioma) =>
+export const urlSeccion = (seccion: Coleccion, idioma: Idioma) =>
+  seccion === 'colaboraciones' ? urlColabora(idioma) : `${prefijo(idioma)}/${secciones[seccion].slug[idioma]}/`;
+export const nombreSeccion = (seccion: Coleccion, idioma: Idioma) =>
+  seccion === 'colaboraciones' ? { es: 'Colaboraciones', en: 'Collaborations' }[idioma] : secciones[seccion].nombre[idioma];
+export const urlObra = (seccion: Coleccion, obra: string, idioma: Idioma) =>
   `${urlSeccion(seccion, idioma)}${obra}/`;
 export const urlEncargos = (idioma: Idioma) => conBase(idioma === 'en' ? '/en/commissions/' : '/encargos/');
 export const urlColabora = (idioma: Idioma) => conBase(idioma === 'en' ? '/en/work-with-me/' : '/colabora/');

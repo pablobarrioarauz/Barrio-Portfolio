@@ -1,0 +1,11 @@
+---
+// Una página por colaboración, colgando de ¿Colaboramos? (/colabora/<nombre>/).
+import Obra from '../../vistas/Obra.astro';
+import { obrasDe } from '../../lib/obras';
+
+export async function getStaticPaths() {
+  return (await obrasDe('colaboraciones')).map((c) => ({ params: { obra: c.id } }));
+}
+---
+
+<Obra idioma="es" seccion="colaboraciones" id={Astro.params.obra} />

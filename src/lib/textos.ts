@@ -25,6 +25,7 @@ export const textos = {
     disponible: 'Disponible',
     vendida: 'Vendida',
     ningunaDisponible: 'Ahora mismo no hay obras disponibles en esta sección.',
+    colaboraciones: 'Colaboraciones',
     volver: (seccion: string) => `Volver a ${seccion.toLowerCase()}`,
     anterior: 'Anterior',
     siguiente: 'Siguiente',
@@ -59,11 +60,25 @@ export const textos = {
       'El arte tiene el poder de transformar un espacio y cambiar por completo la forma en que se percibe. Más allá de adquirir una pieza suelta, te propongo un servicio de arte por encargo para vestir y revalorizar tus espacios de cara al público.',
       'Creo cuadros y esculturas a medida que aportan una identidad única a cada proyecto. Si buscas un enfoque profesional y quieres elevar el valor de lo que haces, cuéntame tu idea o ponme a prueba con el reto que tienes en mente y lo ponemos en marcha.',
     ],
+    // Las modalidades, con el texto que mandó Pablo (24-11-2026), tal cual.
+    // Sustituyen a los cuatro pasos provisionales.
+    colaboraComo: 'Modalidades de colaboración',
     colaboraPasos: [
-      { titulo: 'Tu proyecto', texto: 'Me cuentas cómo es tu espacio, quién lo visita y qué identidad quieres transmitir.' },
-      { titulo: 'Propuesta', texto: 'Te propongo las piezas, con medidas, materiales, plazos y presupuesto.' },
-      { titulo: 'Creación', texto: 'Pinto y esculpo las obras, y te enseño cómo avanzan.' },
-      { titulo: 'Instalación', texto: 'Las obras llegan a tu espacio, listas para colgar o colocar.' },
+      {
+        titulo: 'Vivienda como expositor',
+        para: 'Para inmobiliarias y promociones',
+        texto: 'Tras visitar la obra y revisar planos y referencias, presento una propuesta artística a medida. El cliente o promotor asume únicamente los costes de producción y logística (materiales, enmarcado, transporte e instalación) para vestir el espacio durante su comercialización, manteniendo yo la propiedad de las piezas hasta que el comprador final decida adquirirlas directamente o incluirlas en la operación.',
+      },
+      {
+        titulo: 'Adquisición directa para el estudio',
+        para: 'Para proyectos llave en mano',
+        texto: 'Una vez definida la propuesta artística, el estudio adquiere las piezas directamente bajo condiciones y tarifas especiales para profesionales. El presupuesto se adapta a las necesidades de cada obra, pudiendo incluir únicamente las piezas o el servicio integral de enmarcado, transporte e instalación.',
+      },
+      {
+        titulo: 'Prescripción de proyectos',
+        para: 'Para estudios y agentes colaboradores',
+        texto: 'Si me pones en contacto con un cliente o cerramos el encargo de una o varias piezas a través de tu estudio, aplicamos un acuerdo de comisión pactado previamente según la envergadura del proyecto. Yo me encargo de todo el asesoramiento, producción y entrega final.',
+      },
     ],
     // Texto nuevo de Pablo (28-10-2026), tal cual; solo "mas" con tilde.
     biografia: [
@@ -91,6 +106,7 @@ export const textos = {
     disponible: 'Available',
     vendida: 'Sold',
     ningunaDisponible: 'There are no works available in this section right now.',
+    colaboraciones: 'Collaborations',
     volver: (seccion: string) => `Back to ${seccion.toLowerCase()}`,
     anterior: 'Previous',
     siguiente: 'Next',
@@ -123,11 +139,23 @@ export const textos = {
       'Art has the power to transform a space and completely change the way it is perceived. Beyond buying a single piece, I offer a commissioned art service to dress and add value to the spaces you open to the public.',
       "I create bespoke paintings and sculptures that give each project a unique identity. If you're after a professional approach and want to raise the value of what you do, tell me your idea or put me to the test with the challenge you have in mind, and we'll get it started.",
     ],
+    colaboraComo: 'Ways to collaborate',
     colaboraPasos: [
-      { titulo: 'Your project', texto: 'Tell me about your space, who visits it and the identity you want it to convey.' },
-      { titulo: 'Proposal', texto: 'I propose the pieces, with sizes, materials, timing and price.' },
-      { titulo: 'Creation', texto: 'I paint and sculpt the works and show you how they progress.' },
-      { titulo: 'Installation', texto: 'The works arrive at your space, ready to hang or place.' },
+      {
+        titulo: 'The home as a showroom',
+        para: 'For estate agencies and developments',
+        texto: 'After visiting the property and reviewing plans and references, I present a bespoke artistic proposal. The client or developer covers only the production and logistics costs (materials, framing, transport and installation) to dress the space while it is on the market, and I keep ownership of the pieces until the final buyer decides to purchase them directly or include them in the sale.',
+      },
+      {
+        titulo: 'Direct purchase by the studio',
+        para: 'For turnkey projects',
+        texto: 'Once the artistic proposal is defined, the studio purchases the pieces directly on special terms and trade rates for professionals. The budget adapts to the needs of each project and can cover the pieces alone or the full service of framing, transport and installation.',
+      },
+      {
+        titulo: 'Project referrals',
+        para: 'For studios and partner agents',
+        texto: 'If you put me in touch with a client, or we close a commission for one or more pieces through your studio, we apply a commission agreed in advance according to the scale of the project. I take care of all the advice, production and final delivery.',
+      },
     ],
     biografia: [
       'Perhaps because of that ebb and flow of ideas that has been with me since the earliest years of my life; that constant restlessness to look at things differently, to imagine what they could become and to find new ways of bringing them to life.',

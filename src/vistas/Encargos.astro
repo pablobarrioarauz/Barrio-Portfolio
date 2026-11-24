@@ -7,8 +7,10 @@
 // abiertos al público.
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
+import Galeria from '../components/Galeria.astro';
 import fotoEncargosAncha from '../assets/encargos/horizontal.jpg';
 import { ambas, urlColabora, urlEncargos, type Idioma } from '../lib/rutas';
+import { obrasDe } from '../lib/obras';
 import { urlWhatsApp } from '../lib/sitio';
 import { textos } from '../lib/textos';
 
@@ -21,8 +23,12 @@ const { idioma, pagina = 'encargos' } = Astro.props;
 const t = textos[idioma];
 const p =
   pagina === 'colabora'
-    ? { nombre: t.colabora, url: urlColabora, intro: t.colaboraIntro, pasos: t.colaboraPasos, mensaje: t.mensajeColabora }
-    : { nombre: t.encargos, url: urlEncargos, intro: t.encargosIntro, pasos: t.encargosPasos, mensaje: t.mensajeEncargo };
+    ? { nombre: t.colabora, url: urlColabora, intro: t.colaboraIntro, como: t.colaboraComo, pasos: t.colaboraPasos, mensaje: t.mensajeColabora }
+    : { nombre: t.encargos, url: urlEncargos, intro: t.encargosIntro, como: t.encargosComo, pasos: t.encargosPasos, mensaje: t.mensajeEncargo };
+// En ¿Colaboramos?, al final, los proyectos que ya ha hecho con otros
+// (24-11-2026). Los añade, quita y ordena Pablo desde el panel; si no hay
+// ninguno, la sección no sale.
+const colaboraciones = pagina === 'colabora' ? await obrasDe('colaboraciones') : [];
 ---
 
 <Base idioma={idioma} alternativas={ambas(p.url)} titulo={p.nombre} descripcion={p.intro[0]} activa={pagina}>
@@ -41,18 +47,29 @@ const p =
     </div>
   </div>
 
-  <h2 class="anima" data-ritmo="30">{t.encargosComo}</h2>
-  <ol class="pasos">
-    {p.pasos.map(({ titulo, texto }, i) => (
+  {/* Encargos: los pasos del proceso. ¿Colaboramos?: las modalidades de
+      colaboración (texto de Pablo, 24-11-2026), cada una con a quién va. Una
+      columna por tarjeta en ordenador, para que no quede un hueco. */}
+  <h2 class="anima" data-ritmo="30">{p.como}</h2>
+  <ol class="pasos" style={`--columnas: ${p.pasos.length}`}>
+    {p.pasos.map((paso, i) => (
       <li>
         <span class="numero anima" data-ritmo="45" data-despues={i * 120}>{String(i + 1).padStart(2, '0')}</span>
-        <h3 class="anima" data-ritmo="25" data-despues={i * 120 + 100}>{titulo}</h3>
-        <p class="anima-parrafo" data-despues={i * 120 + 250}>{texto}</p>
+        <h3 class="anima" data-ritmo="25" data-despues={i * 120 + 100}>{paso.titulo}</h3>
+        {'para' in paso && <p class="para anima-parrafo" data-despues={i * 120 + 180}>{paso.para}</p>}
+        <p class="anima-parrafo" data-despues={i * 120 + 250}>{paso.texto}</p>
       </li>
     ))}
   </ol>
 
   <p class="llamada anima-bloque"><a class="boton" href={urlWhatsApp(p.mensaje)}>{t.escribirWhatsApp}</a></p>
+
+  {colaboraciones.length > 0 && (
+    <section class="colaboraciones">
+      <h2 class="anima" data-ritmo="30">{t.colaboraciones}</h2>
+      <Galeria idioma={idioma} seccion="colaboraciones" obras={colaboraciones} />
+    </section>
+  )}
 </Base>
 
 <script is:inline>
@@ -264,7 +281,7 @@ const p =
 
   @media (min-width: 1000px) {
     .pasos {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(var(--columnas, 4), 1fr);
     }
   }
 
@@ -300,7 +317,17 @@ const p =
     color: var(--suave);
   }
 
+  .pasos .para {
+    margin-bottom: 0.75rem;
+    color: var(--texto);
+    font-style: italic;
+  }
+
   .llamada {
     margin-top: 3rem;
+  }
+
+  .colaboraciones {
+    margin-top: 5rem;
   }
 </style>

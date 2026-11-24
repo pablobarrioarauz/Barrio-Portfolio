@@ -15,18 +15,18 @@
 import { Image } from 'astro:assets';
 import { marco34 } from '../lib/fotos';
 import { ficha, type Obra } from '../lib/obras';
-import { urlObra, type Idioma, type Seccion } from '../lib/rutas';
+import { urlObra, type Coleccion, type Idioma } from '../lib/rutas';
 import { textos } from '../lib/textos';
 
 interface Props {
   idioma: Idioma;
-  seccion: Seccion;
+  seccion: Coleccion;
   obras: Obra[];
 }
 
 const { idioma, seccion, obras } = Astro.props;
 const t = textos[idioma];
-const hayVendidas = obras.some((o) => o.data.estado === 'vendido');
+const hayVendidas = obras.some((o) => ficha(o, idioma).vendida);
 // Hubo un tercer botón, "Año", que ordenaba por año; se quitó al dejar de
 // enseñarse el año (pedido de Pablo, 30-10-2026).
 ---
@@ -54,10 +54,10 @@ const hayVendidas = obras.some((o) => o.data.estado === 'vendido');
             />
           </div>
           <div class="pie-tarjeta">
-            {/* Solo el nombre y las medidas (pedido de Guzmán); lo demás, en la
-                página de la obra. */}
+            {/* Solo el nombre y las medidas (pedido de Guzmán), o con quién en
+                una colaboración; lo demás, en su página. */}
             <p class="titulo">{f.titulo}</p>
-            {f.medidas && <p class="datos" title={f.medidas}>{f.medidas}</p>}
+            {f.subtitulo && <p class="datos" title={f.subtitulo}>{f.subtitulo}</p>}
           </div>
         </a>
       </li>

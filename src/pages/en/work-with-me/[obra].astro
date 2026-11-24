@@ -1,0 +1,11 @@
+---
+// Una página por colaboración, en inglés (/en/work-with-me/<nombre>/).
+import Obra from '../../../vistas/Obra.astro';
+import { obrasDe } from '../../../lib/obras';
+
+export async function getStaticPaths() {
+  return (await obrasDe('colaboraciones')).map((c) => ({ params: { obra: c.id } }));
+}
+---
+
+<Obra idioma="en" seccion="colaboraciones" id={Astro.params.obra} />

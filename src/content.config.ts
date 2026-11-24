@@ -37,19 +37,37 @@ const fichaDeObra = ({ image }: SchemaContext) =>
       .default({}),
   });
 
+// Una colaboración (24-11-2026): un proyecto hecho con otra persona, estudio
+// o negocio. Como una obra, pero sin medidas, técnica ni venta.
+const fichaDeColaboracion = ({ image }: SchemaContext) =>
+  z.object({
+    // El nombre del proyecto no se traduce.
+    titulo: z.string(),
+    colaborador: textoOpcional,
+    // Su web o su Instagram (ver enlace() en src/lib/obras.ts).
+    enlace: textoOpcional,
+    lugar: textoOpcional,
+    anio: numeroOpcional,
+    texto: textoOpcional,
+    fotos: z.array(image()).min(1),
+    order: z.number().default(999),
+    en: z.object({ texto: textoOpcional }).default({}),
+  });
+
 // Cada carpeta es una obra, y el nombre de la carpeta es su dirección en la
 // web (cuadros/rojo).
-const seccionDeObras = (seccion: string) =>
+const seccionDeObras = (seccion: string, schema: typeof fichaDeObra | typeof fichaDeColaboracion = fichaDeObra) =>
   defineCollection({
     loader: glob({
       pattern: '*/index.yml',
       base: `./src/content/${seccion}`,
       generateId: ({ entry }) => entry.split('/')[0],
     }),
-    schema: fichaDeObra,
+    schema,
   });
 
 export const collections = {
   cuadros: seccionDeObras('cuadros'),
   esculturas: seccionDeObras('esculturas'),
+  colaboraciones: seccionDeObras('colaboraciones', fichaDeColaboracion),
 };
