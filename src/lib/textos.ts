@@ -14,9 +14,9 @@ export const textos = {
     cerrar: 'Cerrar',
     idioma: 'Idioma',
     encargos: 'Encargos',
-    // Antes "Colabora conmigo"; Guzmán lo cambió (27-10-2026). La dirección
-    // sigue siendo /colabora/.
-    colabora: '¿Proyectamos?',
+    // Antes "Colabora conmigo" y luego "¿Proyectamos?"; "¿Colaboramos?" desde
+    // el 24-11-2026 (Guzmán). La dirección sigue siendo /colabora/.
+    colabora: '¿Colaboramos?',
     acercaDe: 'Acerca de mí',
     contacto: 'Contacto',
     todas: 'Todas',
@@ -81,8 +81,7 @@ export const textos = {
     cerrar: 'Close',
     idioma: 'Language',
     encargos: 'Commissions',
-    // Traducción de "¿Proyectamos?": la invitación a colaborar con él. La
-    // dirección sigue siendo /en/work-with-me/.
+    // Traducción de "¿Colaboramos?". La dirección sigue siendo /en/work-with-me/.
     colabora: 'Shall we collaborate?',
     acercaDe: 'About',
     contacto: 'Contact',
