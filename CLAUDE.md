@@ -84,7 +84,8 @@ tal cual (sustituiría lo que haga él); antes de tocar nada, `git pull`.
   En la web se llaman **Pintura y Escultura** (Painting / Sculpture), por
   decisión de Guzmán (16-10-2026); las direcciones siguen siendo /cuadros/ y
   /esculturas/. Las dos usan la misma galería: un cambio vale para las dos.
-- Secciones: Pintura · Escultura · Encargos · ¿Colaboramos? · Contacto.
+- Secciones: Pintura · Escultura · ¿Colaboramos? · Encargos · Contacto
+  (¿Colaboramos? antes que Encargos desde el 25-11-2026, pedido de Pablo).
   **¿Colaboramos?** (antes "Colabora conmigo" y "¿Proyectamos?"; 24-11-2026, /colabora/ y /en/work-with-me/) es una
   réplica de Encargos para negocios y espacios abiertos al público, con el
   texto que mandó Pablo; las dos páginas salen de `src/vistas/Encargos.astro`.

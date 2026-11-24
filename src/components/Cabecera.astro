@@ -38,8 +38,9 @@ const t = textos[idioma];
 const menu = [
   { clave: 'cuadros', texto: secciones.cuadros.nombre[idioma], url: urlSeccion('cuadros', idioma) },
   { clave: 'esculturas', texto: secciones.esculturas.nombre[idioma], url: urlSeccion('esculturas', idioma) },
-  { clave: 'encargos', texto: t.encargos, url: urlEncargos(idioma) },
+  // ¿Colaboramos? antes que Encargos (pedido de Pablo, 25-11-2026).
   { clave: 'colabora', texto: t.colabora, url: urlColabora(idioma) },
+  { clave: 'encargos', texto: t.encargos, url: urlEncargos(idioma) },
   { clave: 'contacto', texto: t.contacto, url: urlContacto(idioma) },
 ];
 ---
