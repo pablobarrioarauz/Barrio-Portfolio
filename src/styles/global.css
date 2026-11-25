@@ -4,6 +4,10 @@
   --fondo: #ffffff; /* blanco puro (pedido de Guzmán, 16-10-2026) */
   --texto: #1a1a1a;
   --suave: #6b6760;
+  /* Redondez de las esquinas de todos los botones: las cajitas de la
+     cabecera y los botones negros (pedido de Guzmán, 25-11-2026: antes los
+     negros tenían 2 px y la cabecera 4). */
+  --redondez: 4px;
   --linea: #dcd7cf;
   --vacio: #ededed; /* fondo de las fotos mientras cargan */
   --acento: #1a1a1a;
@@ -217,7 +221,7 @@ h1 {
   color: var(--fondo);
   text-decoration: none;
   font-weight: 300;
-  border-radius: 2px;
+  border-radius: var(--redondez);
 }
 
 .boton:hover {
