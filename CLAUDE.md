@@ -201,9 +201,13 @@ repetida y más vieja), `Documentos/` y la copia de seguridad.
 idéntica a `scripts/firma/Firma Barrio.svg`, la de la cabecera. Resto, sin
 tocar por Lightroom: `Fotos obras/` (Cuadros PRO, Esculturas PRO, con
 `Brutos` y `Done`), `Sesiones/` (la foto de la portada es
-`Sesiones/2025-12 Venezolano/Final/Barrio Julián Camarillo-13.jpg`, la mano
-con la barra de óleo sobre el amarillo, 1377 x 1836, en móvil y ordenador
-desde el 25-11-2026; antes la -12, y unas horas en el móvil Pablo bajo el
+en ordenador, desde el 25-11-2026, la textura del cuadro naranja del
+dormitorio de Núñez de Balboa, `Dossier Barrio - Núñez de Balboa
+17/Obras/Obras Barrio/05 Dormitorio - cuadro naranja/GG6A1628.jpg`,
+enderezada y a 3200 px en `src/assets/inicio/portada.jpg`; en el móvil
+(pantalla en vertical), `Sesiones/2025-12 Venezolano/Final/Barrio Julián
+Camarillo-13.jpg`, la mano con la barra de óleo sobre el amarillo, 1377 x
+1836, en `src/assets/inicio/portada-movil.jpg`; antes la -12 en los dos, y unas horas en el móvil Pablo bajo el
 árbol, `Fotos de la web/Portada/Portada móvil (WhatsApp 2026-11-24).jpg`;
 el fondo de la portada, `#a1a1a1`, es el gris del borde de arriba de la
 foto, para que Safari pinte sus barras a juego: al cambiar de foto, medirlo

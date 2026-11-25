@@ -4,6 +4,7 @@
 import Base from '../layouts/Base.astro';
 import LienzoPintable from '../components/LienzoPintable.astro';
 import foto from '../assets/inicio/portada.jpg';
+import fotoMovil from '../assets/inicio/portada-movil.jpg';
 import { ambas, urlInicio, type Idioma } from '../lib/rutas';
 import { sitio } from '../lib/sitio';
 import { textos } from '../lib/textos';
@@ -17,11 +18,11 @@ const t = textos[idioma];
 ---
 
 <Base idioma={idioma} alternativas={ambas(urlInicio)} descripcion={t.inicioIntro} portada>
-  {/* La mano con la barra de óleo sobre el amarillo («Barrio Julián
-      Camarillo-13», 1377 x 1836), la misma en ordenador y en móvil (pedido
-      de Guzmán, 25-11-2026; antes «-12», y en el móvil, unas horas, Pablo
-      bajo el árbol). */}
-  <LienzoPintable foto={foto} />
+  {/* En ordenador, la textura del cuadro naranja del dormitorio de Núñez
+      de Balboa (GG6A1628 del dossier, enderezada y a 3200 px). En el móvil
+      (pantalla en vertical), la mano con la barra de óleo sobre el amarillo
+      («Barrio Julián Camarillo-13»). Pedido de Guzmán, 25-11-2026. */}
+  <LienzoPintable foto={foto} fotoVertical={fotoMovil} />
   <h1 class="oculto">{sitio.nombre} — {t.profesion}</h1>
 </Base>
 

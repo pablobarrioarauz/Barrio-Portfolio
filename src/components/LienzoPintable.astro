@@ -21,7 +21,7 @@ interface Props {
 }
 
 const { foto, fotoVertical } = Astro.props;
-const anchos = (f: ImageMetadata) => [600, 900, 1200, 1600, 2400, 3200].filter((w) => w <= f.width);
+const anchos = (f: ImageMetadata) => [...new Set([...[600, 900, 1200, 1600, 2400, 3200].filter((w) => w <= f.width), Math.min(f.width, 3200)])];
 const vertical = fotoVertical
   ? (await Promise.all(anchos(fotoVertical).map((w) => getImage({ src: fotoVertical, width: w, format: 'webp' }))))
       .map((r, i) => `${r.src} ${anchos(fotoVertical)[i]}w`)
