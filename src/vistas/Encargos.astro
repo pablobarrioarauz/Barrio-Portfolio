@@ -457,6 +457,13 @@ const colaboraciones = (pagina === 'colabora' ? await obrasDe('colaboraciones') 
     margin-top: 4rem;
   }
 
+  /* En ¿Colaboramos? (sin foto arriba), la introducción ocupa todo el
+     ancho en vez de quedarse en una columna a la izquierda (pedido de
+     Guzmán, 25-11-2026). */
+  .cabeza:not(.con-foto) .texto-largo {
+    max-width: none;
+  }
+
   .colaboraciones h2 {
     margin-top: 0;
   }
@@ -502,6 +509,8 @@ const colaboraciones = (pagina === 'colabora' ? await obrasDe('colaboraciones') 
     display: inline-block;
     margin-top: 0.5rem;
     text-decoration: underline;
+    /* Un pelín más fina que la de serie (pedido de Guzmán). */
+    text-decoration-thickness: 0.5px;
     text-underline-offset: 3px;
   }
 
