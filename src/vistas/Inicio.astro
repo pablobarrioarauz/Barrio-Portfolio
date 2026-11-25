@@ -4,6 +4,7 @@
 import Base from '../layouts/Base.astro';
 import LienzoPintable from '../components/LienzoPintable.astro';
 import foto from '../assets/inicio/portada.jpg';
+import fotoMovil from '../assets/inicio/portada-movil.jpg';
 import { ambas, urlInicio, type Idioma } from '../lib/rutas';
 import { sitio } from '../lib/sitio';
 import { textos } from '../lib/textos';
@@ -17,9 +18,12 @@ const t = textos[idioma];
 ---
 
 <Base idioma={idioma} alternativas={ambas(urlInicio)} descripcion={t.inicioIntro} portada>
-  {/* Foto vertical («Barrio Julián Camarillo-12», 21-10-2026):
-      la misma en ordenador y en móvil (pedido de Guzmán). */}
-  <LienzoPintable foto={foto} />
+  {/* Foto vertical («Barrio Julián Camarillo-12», 21-10-2026) en
+      ordenador. En el móvil (pantalla en vertical), otra: Pablo bajo el
+      árbol (pedido de Guzmán, 25-11-2026; la versión que llegó por
+      WhatsApp, 1449 x 2560, copiada también a 00 Barrio/Web/Fotos de la
+      web/Portada). */}
+  <LienzoPintable foto={foto} fotoVertical={fotoMovil} />
   <h1 class="oculto">{sitio.nombre} — {t.profesion}</h1>
 </Base>
 

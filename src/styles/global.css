@@ -10,7 +10,9 @@
   --redondez: 4px;
   --linea: #dcd7cf;
   --vacio: #ededed; /* fondo de las fotos mientras cargan */
-  --acento: #1a1a1a;
+  /* Relleno de los botones: un negro roto, cálido, en vez de casi negro
+     puro (#1a1a1a; pedido de Guzmán, 25-11-2026). */
+  --acento: #2f2c29;
   /* Márgenes copiados de la web de Blanca (blancagtarrio.com), que se
      ajustaron allí a ojo durante días. El lateral crece con la pantalla. */
   --margen: clamp(1rem, 8.35vw, 13.25rem);

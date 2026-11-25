@@ -201,7 +201,10 @@ repetida y más vieja), `Documentos/` y la copia de seguridad.
 idéntica a `scripts/firma/Firma Barrio.svg`, la de la cabecera. Resto, sin
 tocar por Lightroom: `Fotos obras/` (Cuadros PRO, Esculturas PRO, con
 `Brutos` y `Done`), `Sesiones/` (la foto de la portada es
-`Sesiones/2025-12 Venezolano/Final/Barrio Julián Camarillo-12.jpg`),
+`Sesiones/2025-12 Venezolano/Final/Barrio Julián Camarillo-12.jpg`; en el
+móvil, desde el 25-11-2026, otra: Pablo bajo el árbol, en `Fotos de la
+web/Portada/Portada móvil (WhatsApp 2026-11-24).jpg`, la versión de
+WhatsApp, 1449 x 2560, y en la web `src/assets/inicio/portada-movil.jpg`),
 `Cat Lightroom/`; y `Obras/`, `Dossier Obras/`, `Materia viva/`.
 
 ## La web de Blanca: qué mirar y qué no
