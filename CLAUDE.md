@@ -89,17 +89,32 @@ tal cual (sustituiría lo que haga él); antes de tocar nada, `git pull`.
   **¿Colaboramos?** (antes "Colabora conmigo" y "¿Proyectamos?"; 24-11-2026, /colabora/ y /en/work-with-me/) es una
   réplica de Encargos para negocios y espacios abiertos al público, con el
   texto que mandó Pablo; las dos páginas salen de `src/vistas/Encargos.astro`.
-  En vez de pasos lleva las **tres modalidades de colaboración** que mandó
-  Pablo (24-11-2026; traducción mía) y, al final, **Colaboraciones**: los
-  proyectos hechos con otros, que Pablo añade, quita y ordena desde el panel
-  (colección `colaboraciones`, `src/content/colaboraciones/`). En
-  ¿Colaboramos? cada una es un bloque como la cabecera de Encargos (texto a
-  la izquierda, foto grande apaisada a la derecha: el campo "Foto grande",
-  o la primera foto si falta; 25-11-2026); su página, como la de una obra
-  (carrusel, en `/colabora/<nombre>/`), con colaborador (y su web o
-  @Instagram), lugar, año y texto. Sin ninguna, la sección no sale. La
-  primera: Proyecto Núñez de Balboa 17 (MH Global), con las fotos y
-  encuadres del dossier de Guzmán. "Acerca de mí" va
+  **Orden de ¿Colaboramos?** (25-11-2026, pedido de Guzmán): título e
+  introducción (publicada a todo el ancho, sin la columna de 38rem;
+  Encargos la mantiene porque lleva foto al lado), el botón **"Hablemos de
+  tu proyecto"** / "Let's talk about your project" (abre WhatsApp; se
+  probó "Hablemos" a secas y Guzmán prefirió el largo), después
+  **Colaboraciones** y lo último las **tres modalidades de colaboración**
+  que mandó Pablo (24-11-2026; traducción mía), en lugar de pasos.
+  Colaboraciones son los proyectos hechos con otros, que Pablo añade, quita
+  y ordena desde el panel (colección `colaboraciones`,
+  `src/content/colaboraciones/`). Cada una es un bloque como la cabecera de
+  Encargos (texto a la izquierda, foto grande apaisada 4:3 a la derecha: el
+  campo "Foto grande", o la primera foto si falta; "Ver el proyecto" con la
+  raya de 0,5 px); su página, como la de una obra (carrusel, en
+  `/colabora/<nombre>/`), con colaborador (y su web o @Instagram), lugar,
+  año y texto. Sin ninguna, la sección no sale. La primera: Proyecto Núñez
+  de Balboa 17 (Inmobiliaria MH Global · Madrid · 2026), con las fotos y
+  encuadres del dossier de Guzmán (originales en `00 Barrio/Dossier Barrio
+  - Núñez de Balboa 17/Obras/Obras Barrio`); abre con el cuadro de la
+  grieta verde en el comedor y su foto grande es GG6A1532.
+- **Tarjetas de Encargos y ¿Colaboramos? en el móvil** (25-11-2026): en un
+  carrusel que se desliza con el dedo (una tarjeta entera y asoma la
+  siguiente; la primera pegada al margen izquierdo, la última al derecho y
+  las del medio centradas, 45 px a cada lado en un iPhone), con puntitos
+  debajo como las fotos de una obra y todas igual de altas. En ordenador,
+  en fila como siempre. Se hizo porque una debajo de otra las modalidades
+  medían 1.027 px, más que la pantalla. "Acerca de mí" va
   dentro de Contacto (lo decidió Guzmán, 16-10-2026). Desde el 21-10-2026
   Contacto (28-10-2026, pedido de Pablo): sin título visible; una foto a
   pantalla completa que se pasa sola cada 5 s (la siguiente aparece encima,
