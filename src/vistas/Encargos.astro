@@ -59,6 +59,32 @@ const colaboraciones = (pagina === 'colabora' ? await obrasDe('colaboraciones') 
     <p class="llamada llamada-arriba anima-bloque"><a class="boton" href={urlWhatsApp(p.mensaje)}>{t.colaboraBoton}</a></p>
   )}
 
+  {/* Las colaboraciones, entre el botón y las modalidades (pedido de
+      Guzmán, 25-11-2026; antes iban al final): tras la introducción, el
+      trabajo ya hecho; lo último, las modalidades. */}
+  {colaboraciones.length > 0 && (
+    <section class="colaboraciones">
+      <h2 class="anima" data-ritmo="30">{t.colaboraciones}</h2>
+      <ul class="lista-colaboraciones">
+        {colaboraciones.map((c) => (
+          <li class="anima-bloque">
+            <a class="colaboracion" href={c.url}>
+              <figure class="foto">
+                <Image src={c.portada} alt={c.titulo} widths={[600, 900, 1200, 1600]} sizes="(min-width: 900px) 50vw, 100vw" loading="eager" fetchpriority="high" />
+              </figure>
+              <div class="sobre">
+                <h3>{c.titulo}</h3>
+                <p class="datos">{c.datos.map((d) => d.texto).join(' · ')}</p>
+                {c.texto && <p class="texto">{c.texto}</p>}
+                <span class="ver">{t.verProyecto} →</span>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
   {/* Encargos: los pasos del proceso. ¿Colaboramos?: las modalidades de
       colaboración (texto de Pablo, 24-11-2026), cada una con a quién va. Una
       columna por tarjeta en ordenador, para que no quede un hueco. */}
@@ -86,28 +112,6 @@ const colaboraciones = (pagina === 'colabora' ? await obrasDe('colaboraciones') 
     <p class="llamada anima-bloque"><a class="boton" href={urlWhatsApp(p.mensaje)}>{t.escribirWhatsApp}</a></p>
   )}
 
-  {colaboraciones.length > 0 && (
-    <section class="colaboraciones">
-      <h2 class="anima" data-ritmo="30">{t.colaboraciones}</h2>
-      <ul class="lista-colaboraciones">
-        {colaboraciones.map((c) => (
-          <li class="anima-bloque">
-            <a class="colaboracion" href={c.url}>
-              <figure class="foto">
-                <Image src={c.portada} alt={c.titulo} widths={[600, 900, 1200, 1600]} sizes="(min-width: 900px) 50vw, 100vw" />
-              </figure>
-              <div class="sobre">
-                <h3>{c.titulo}</h3>
-                <p class="datos">{c.datos.map((d) => d.texto).join(' · ')}</p>
-                {c.texto && <p class="texto">{c.texto}</p>}
-                <span class="ver">{t.verProyecto} →</span>
-              </div>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </section>
-  )}
 </Base>
 
 <script is:inline>
@@ -450,7 +454,11 @@ const colaboraciones = (pagina === 'colabora' ? await obrasDe('colaboraciones') 
   }
 
   .colaboraciones {
-    margin-top: 5rem;
+    margin-top: 4rem;
+  }
+
+  .colaboraciones h2 {
+    margin-top: 0;
   }
 
   .lista-colaboraciones {
