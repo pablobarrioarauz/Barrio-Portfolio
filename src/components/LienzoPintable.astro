@@ -289,13 +289,12 @@ const vertical = fotoVertical
   /* Alto "grande" de pantalla (100lvh): el que hay con las barras de Safari
      escondidas, para que en el móvil la foto llegue hasta los bordes del
      teléfono y no se quede en el hueco entre las barras. */
-  /* Parte de la página (absolute), no pegada a la pantalla (fixed): el
-     Safari del iPhone no dibuja lo "fixed" detrás de sus barras, sino un
-     color liso, y salían dos franjas; la galería, que sí es parte de la
-     página, pasa por detrás. Prueba del 25-11-2026. La portada no tiene
-     scroll, así que en pantalla no cambia nada. */
+  /* Pegada a la pantalla (fixed). Se probó "absolute" (25-11-2026): en el
+     iPhone la foto pasaba por detrás de la barra de abajo de Safari, pero
+     la de arriba seguía saliendo, y Guzmán prefirió las dos franjas (en
+     negro, el fondo de la portada) a una sola. */
   .lienzo {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
