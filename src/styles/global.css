@@ -86,12 +86,14 @@ html:has(.lienzo) {
      (pedido de Guzmán). */
   overflow: hidden;
   overscroll-behavior: none;
-  /* El gris del borde de arriba de la foto (que empieza en blanco y negro):
-     Safari en el móvil tiñe sus barras con el color de fondo de la página,
-     así se funden con la foto. Medido en la mano sobre el amarillo
-     (25-11-2026): 161 de 255 arriba; abajo, más oscuro, pero Safari solo
-     admite un color. El body, transparente, para que no la tape. */
-  background: #a1a1a1;
+  /* Blanco, como el resto de la web (pedido de Guzmán, 25-11-2026): Safari
+     en el iPhone pinta la zona de su barra de arriba con el fondo de la
+     página. Antes era el gris del borde de la foto (#a1a1a1, medido igual
+     que la foto en su captura: 161 y 160), pero se notaba igual el corte
+     entre la franja lisa y la textura. La barra de abajo ya no sale: la
+     foto es parte de la página (ver LienzoPintable). El body, transparente,
+     para que no la tape. */
+  background: var(--fondo);
 }
 
 
