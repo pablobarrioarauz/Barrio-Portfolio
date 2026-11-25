@@ -94,7 +94,7 @@ const colaboraciones = (pagina === 'colabora' ? await obrasDe('colaboraciones') 
       Guzmán, 25-11-2026: primero en ¿Colaboramos?, donde una debajo de otra
       medían 1.030 px, más que la pantalla; luego también en Encargos). En
       ordenador, en fila como siempre. */}
-  <ol class="pasos deslizable" style={`--columnas: ${p.pasos.length}`}>
+  <ol class={`pasos deslizable${p.pasos.length % 2 ? ' impar' : ''}`} style={`--columnas: ${p.pasos.length}`}>
     {p.pasos.map((paso, i) => (
       <li>
         <span class="numero anima" data-ritmo="45" data-despues={i * 120}>{String(i + 1).padStart(2, '0')}</span>
@@ -108,9 +108,10 @@ const colaboraciones = (pagina === 'colabora' ? await obrasDe('colaboraciones') 
     {p.pasos.map((_, i) => <button type="button" class="punto" tabindex="-1" aria-current={i === 0 ? 'true' : undefined} />)}
   </div>
 
-  {pagina === 'encargos' && (
-    <p class="llamada anima-bloque"><a class="boton" href={urlWhatsApp(p.mensaje)}>{t.escribirWhatsApp}</a></p>
-  )}
+  {/* Al final, el botón otra vez: quien ha leído las modalidades no tiene
+      que volver arriba para escribir (pedido de Guzmán, 25-11-2026; en
+      ¿Colaboramos? también sigue el de arriba). */}
+  <p class="llamada anima-bloque"><a class="boton" href={urlWhatsApp(p.mensaje)}>{pagina === 'colabora' ? t.colaboraBoton : t.escribirWhatsApp}</a></p>
 
 </Base>
 
@@ -339,9 +340,18 @@ const colaboraciones = (pagina === 'colabora' ? await obrasDe('colaboraciones') 
     gap: var(--hueco);
   }
 
+  /* En tableta, de dos en dos; si son impares (las tres modalidades), la
+     última se quedaba sola con un hueco al lado: entonces, una debajo de
+     otra (25-11-2026). */
   @media (min-width: 720px) {
     .pasos {
       grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 720px) and (max-width: 999.98px) {
+    .pasos.impar {
+      grid-template-columns: 1fr;
     }
   }
 
@@ -457,11 +467,24 @@ const colaboraciones = (pagina === 'colabora' ? await obrasDe('colaboraciones') 
     margin-top: 4rem;
   }
 
-  /* En ¿Colaboramos? (sin foto arriba), la introducción ocupa todo el
-     ancho en vez de quedarse en una columna a la izquierda (pedido de
-     Guzmán, 25-11-2026). */
+  /* En ¿Colaboramos? (sin foto arriba): a toda anchura (sin max-width) cada
+     línea medía 150 caracteres, demasiado para leer bien (pedido de Guzmán,
+     25-11-2026). En su lugar, los dos párrafos de Pablo van cada uno en su
+     columna, a partir de 700 px; por debajo, uno debajo de otro como antes. */
   .cabeza:not(.con-foto) .texto-largo {
-    max-width: none;
+    max-width: 58rem;
+  }
+
+  @media (min-width: 700px) {
+    .cabeza:not(.con-foto) .texto-largo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 3rem;
+    }
+
+    .cabeza:not(.con-foto) .texto-largo p {
+      margin-bottom: 0;
+    }
   }
 
   .colaboraciones h2 {
@@ -514,17 +537,14 @@ const colaboraciones = (pagina === 'colabora' ? await obrasDe('colaboraciones') 
     text-underline-offset: 3px;
   }
 
-  /* En ordenador, como la cabecera de Encargos: el texto a la izquierda,
-     centrado en vertical, y la foto a la derecha. En el móvil, la foto
-     arriba. */
+  /* En ordenador, la foto a la izquierda y el texto a la derecha, centrado
+     en vertical (pedido de Guzmán, 25-11-2026; antes al revés, como la
+     cabecera de Encargos). En el móvil, la foto arriba. */
   @media (min-width: 900px) {
     .colaboracion {
-      grid-template-columns: 5fr 6fr;
+      grid-template-columns: 6fr 5fr;
       align-items: center;
       column-gap: clamp(2rem, 5vw, 5rem);
-    }
-    .colaboracion .foto {
-      order: 2;
     }
   }
 </style>

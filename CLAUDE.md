@@ -95,11 +95,15 @@ tal cual (sustituiría lo que haga él); antes de tocar nada, `git pull`.
   tu proyecto"** / "Let's talk about your project" (abre WhatsApp; se
   probó "Hablemos" a secas y Guzmán prefirió el largo), después
   **Colaboraciones** y lo último las **tres modalidades de colaboración**
-  que mandó Pablo (24-11-2026; traducción mía), en lugar de pasos.
+  que mandó Pablo (24-11-2026; traducción mía), en lugar de pasos, y
+  debajo el botón otra vez (25-11-2026, para no tener que volver arriba).
+  En tableta (720-999 px) las tres modalidades van una debajo de otra: en
+  dos columnas la tercera se quedaba sola.
   Colaboraciones son los proyectos hechos con otros, que Pablo añade, quita
   y ordena desde el panel (colección `colaboraciones`,
   `src/content/colaboraciones/`). Cada una es un bloque como la cabecera de
-  Encargos (texto a la izquierda, foto grande apaisada 4:3 a la derecha: el
+  Encargos pero al revés (desde el 25-11-2026, foto grande apaisada 4:3 a
+  la izquierda y texto a la derecha; en el móvil, la foto arriba: el
   campo "Foto grande", o la primera foto si falta; "Ver el proyecto" con la
   raya de 0,5 px); su página, como la de una obra (carrusel, en
   `/colabora/<nombre>/`), con colaborador (y su web o @Instagram), lugar,
