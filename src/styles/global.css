@@ -86,22 +86,14 @@ html:has(.lienzo) {
      (pedido de Guzmán). */
   overflow: hidden;
   overscroll-behavior: none;
-  /* El gris del cielo de la foto (que empieza en blanco y negro): Safari en
-     el móvil tiñe sus barras con el color de fondo de la página, así se
-     funden con la foto. El body, transparente, para que no la tape. */
-  background: #a6a6a6;
+  /* El gris del borde de arriba de la foto (que empieza en blanco y negro):
+     Safari en el móvil tiñe sus barras con el color de fondo de la página,
+     así se funden con la foto. Medido en la mano sobre el amarillo
+     (25-11-2026): 161 de 255 arriba; abajo, más oscuro, pero Safari solo
+     admite un color. El body, transparente, para que no la tape. */
+  background: #a1a1a1;
 }
 
-/* En vertical (el móvil) sale la foto de Pablo bajo el árbol, oscura arriba
-   y abajo: con el gris del cielo de la otra, Safari pintaba sus barras como
-   dos franjas grises que no venían a cuento (Guzmán, 25-11-2026). Medido
-   en la foto ya en gris: borde de arriba 21 y de abajo 65 (unos 36 con el
-   degradado del pie), de 255. */
-@media (orientation: portrait) {
-  html:has(.lienzo) {
-    background: #1e1e1e;
-  }
-}
 
 html:has(.lienzo) body {
   background: transparent;

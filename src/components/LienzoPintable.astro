@@ -35,7 +35,7 @@ const vertical = fotoVertical
     <Image
       src={foto}
       alt=""
-      widths={[800, 1200, 1600, 2400, 3200].filter((w) => w <= foto.width)}
+      widths={[...new Set([...[800, 1200, 1600, 2400, 3200].filter((w) => w <= foto.width), Math.min(foto.width, 3200)])]}
       sizes="100vw"
       loading="eager"
       fetchpriority="high"
