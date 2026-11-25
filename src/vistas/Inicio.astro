@@ -1,6 +1,7 @@
 ---
 // Portada: una foto a pantalla completa, en blanco y negro, que se pinta con
 // su color al pasar el ratón. Cabecera arriba y pie abajo, encima de la foto.
+import { getImage } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import LienzoPintable from '../components/LienzoPintable.astro';
 import foto from '../assets/inicio/portada.jpg';
@@ -14,6 +15,12 @@ interface Props {
 
 const { idioma } = Astro.props;
 const t = textos[idioma];
+
+// La misma foto, también de fondo de la página (prueba, 25-11-2026): Safari
+// en el iPhone rellena la zona de sus barras con el fondo de la página, y
+// con un color liso se veían dos franjas. Mismo tamaño que la del móvil,
+// para que el navegador no descargue otra.
+const fondo = await getImage({ src: foto, width: Math.min(1200, foto.width), format: 'webp' });
 ---
 
 <Base idioma={idioma} alternativas={ambas(urlInicio)} descripcion={t.inicioIntro} portada>
@@ -22,6 +29,9 @@ const t = textos[idioma];
       de Guzmán, 25-11-2026; antes «-12», y en el móvil, unas horas, Pablo
       bajo el árbol). */}
   <LienzoPintable foto={foto} />
+  {/* En gris como la foto de encima: la mezcla "luminosity" toma la luz de
+      la foto y el color (ninguno) del gris de debajo. */}
+  <Fragment set:html={`<style>@media (orientation: portrait){html:has(.lienzo){background-image:url("${fondo.src}");background-size:cover;background-position:center;background-repeat:no-repeat;background-attachment:fixed;background-blend-mode:luminosity}}</style>`} />
   <h1 class="oculto">{sitio.nombre} — {t.profesion}</h1>
 </Base>
 
