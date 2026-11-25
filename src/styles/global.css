@@ -92,6 +92,17 @@ html:has(.lienzo) {
   background: #a6a6a6;
 }
 
+/* En vertical (el móvil) sale la foto de Pablo bajo el árbol, oscura arriba
+   y abajo: con el gris del cielo de la otra, Safari pintaba sus barras como
+   dos franjas grises que no venían a cuento (Guzmán, 25-11-2026). Medido
+   en la foto ya en gris: borde de arriba 21 y de abajo 65 (unos 36 con el
+   degradado del pie), de 255. */
+@media (orientation: portrait) {
+  html:has(.lienzo) {
+    background: #1e1e1e;
+  }
+}
+
 html:has(.lienzo) body {
   background: transparent;
   overflow: hidden;
