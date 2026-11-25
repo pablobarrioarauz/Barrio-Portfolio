@@ -86,15 +86,15 @@ html:has(.lienzo) {
      (pedido de Guzmán). */
   overflow: hidden;
   overscroll-behavior: none;
-  /* El negro roto de los botones (pedido de Guzmán, 25-11-2026; un rato
-     fue blanco, como el resto de la web): Safari
+  /* Negro puro (pedido de Guzmán, 25-11-2026; antes se probaron blanco y
+     el negro roto de los botones): Safari
      en el iPhone pinta la zona de su barra de arriba con el fondo de la
      página. Antes era el gris del borde de la foto (#a1a1a1, medido igual
      que la foto en su captura: 161 y 160), pero se notaba igual el corte
      entre la franja lisa y la textura. La barra de abajo ya no sale: la
      foto es parte de la página (ver LienzoPintable). El body, transparente,
      para que no la tape. */
-  background: var(--acento);
+  background: #000;
 }
 
 
