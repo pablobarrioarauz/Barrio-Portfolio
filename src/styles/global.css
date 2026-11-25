@@ -1,7 +1,9 @@
 /* Estilos comunes. Es el esqueleto: neutro a propósito, el diseño viene después. */
 
 :root {
-  --fondo: #ffffff; /* blanco puro (pedido de Guzmán, 16-10-2026) */
+  /* Blanco roto, apenas cálido (pedido de Guzmán, 25-11-2026: "que no se
+     pase de roto"; antes blanco puro, #ffffff, desde el 16-10-2026). */
+  --fondo: #fcfaf7;
   --texto: #1a1a1a;
   --suave: #6b6760;
   /* Redondez de las esquinas de todos los botones: las cajitas de la
