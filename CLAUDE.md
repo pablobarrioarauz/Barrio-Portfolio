@@ -201,11 +201,11 @@ repetida y más vieja), `Documentos/` y la copia de seguridad.
 idéntica a `scripts/firma/Firma Barrio.svg`, la de la cabecera. Resto, sin
 tocar por Lightroom: `Fotos obras/` (Cuadros PRO, Esculturas PRO, con
 `Brutos` y `Done`), `Sesiones/` (la foto de la portada es
-en ordenador, desde el 25-11-2026, la textura del cuadro naranja del
+en ordenador desde el 25-11-2026, y también en el móvil desde el 26-11-2026, la textura del cuadro naranja del
 dormitorio de Núñez de Balboa, `Dossier Barrio - Núñez de Balboa
 17/Obras/Obras Barrio/05 Dormitorio - cuadro naranja/GG6A1628.jpg`,
-enderezada y a 3200 px en `src/assets/inicio/portada.jpg`; en el móvil
-(pantalla en vertical), `Sesiones/2025-12 Venezolano/Final/Barrio Julián
+enderezada y a 3200 px en `src/assets/inicio/portada.jpg`; hasta el
+26-11-2026, en el móvil (pantalla en vertical), `Sesiones/2025-12 Venezolano/Final/Barrio Julián
 Camarillo-12.jpg`, Pablo pintando el cuadro amarillo, en
 `src/assets/inicio/portada-movil.jpg` (antes la -12 en los dos; unas horas
 del 25-11-2026, la -13 en el móvil), y unas horas en el móvil Pablo bajo el
